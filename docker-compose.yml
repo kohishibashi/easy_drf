@@ -26,3 +26,10 @@ services:
       - SECRET_KEY=devsecretkey
     depends_on:
       - db
+  front:
+    build: ./react
+    volumes:
+      - ./react:/app:cached
+    command: sh -c "yarn start"
+    ports:
+      - "3000:3000"
